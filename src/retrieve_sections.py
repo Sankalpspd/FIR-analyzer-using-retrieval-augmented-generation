@@ -13,10 +13,10 @@ def retrieve_sections(fir_text):
  faiss.normalize_L2(sentence_embeddings)
 
  # Load FAISS index
- faiss_index = faiss.read_index("faiss_index.bin")
+ faiss_index = faiss.read_index("faiss_db/faiss_index.bin")
 
  # Load embeddings if needed
- with open("section_embeddings.pkl", "rb") as f:
+ with open("faiss_db/section_embeddings.pkl", "rb") as f:
     embeddings = pickle.load(f)
  top_k = 7
  distances, indices = offence_index.search(sentence_embeddings, top_k)
