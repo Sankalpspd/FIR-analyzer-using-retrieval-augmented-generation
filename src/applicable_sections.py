@@ -2,9 +2,9 @@ import json
 from retrieve_sections import retrieve_sections
 from exceptions import exceptions_dict
 from prompt import build_prompt
+from querry import query_llm
 def applicable_sections(fir_text):
-
- offence_df = pd.read_excel("offence_sections_df.excel")
+ offence_df = pd.read_excel("data/offence_sections_df.excel")
  retrieved_ids_offence = retrieve_sections(Fir_query)
 
  sections = []
