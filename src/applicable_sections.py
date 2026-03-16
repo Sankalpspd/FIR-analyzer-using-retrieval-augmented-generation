@@ -3,7 +3,7 @@ import pandas as pd
 from retrieve_sections import retrieve_sections
 from exceptions import sec_exceptions
 from prompt import build_prompt
-from querry import query_llm
+from querry import query_gemini
 def applicable_sections(fir_text):
  offence_df = pd.read_excel("data/offence_sections_df.excel")
  retrieved_ids_offence = retrieve_sections(fir_text)
@@ -27,7 +27,7 @@ def applicable_sections(fir_text):
 
     prompt = build_prompt(short_fir, short_section, exceptions)
 
-    response = query_llm(prompt)
+    response = query_gemini(prompt)
 
     # Default values
     applicable = "no"
