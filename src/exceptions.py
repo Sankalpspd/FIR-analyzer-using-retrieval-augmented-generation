@@ -15,4 +15,4 @@ def exceptions(Act):
 
     exceptions_dict[act] = exception_text
 
-  return exceptions_dict[Act]
+return exceptions_dict[Act]
