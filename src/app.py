@@ -1,23 +1,22 @@
->>> import streamlit as st
-... from applicable_sections import applicable_sections
-... 
-... st.title("FIR Legal Section Analyzer")
-...  
-... fir_text = st.text_area("Enter FIR text", height=300)
-... 
-... if st.button("Analyze FIR"):
-... 
-...     if fir_text.strip() == "":
-...         st.warning("Please enter FIR text.")
-...     else:
-... 
-...         results = applicable_sections(fir_text)
-... 
-...         if len(results) == 0:
-...             st.write("No applicable sections found.")
-... 
-...        for sec in results:
-... 
-...             st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
-... 
-...             st.write(sec["section_title"])
+import streamlit as st
+from applicable_sections import applicable_sections
+
+st.title("FIR Legal Section Analyzer")
+ 
+fir_text = st.text_area("Enter FIR text", height=300)
+
+if st.button("Analyze FIR"):
+
+    if fir_text.strip() == "":
+        st.warning("Please enter FIR text.")
+    else:
+
+        results = applicable_sections(fir_text)
+
+        if len(results) == 0:
+            st.write("No applicable sections found.")
+
+       for sec in results:
+
+            st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
+            st.write(sec["section_title"])
