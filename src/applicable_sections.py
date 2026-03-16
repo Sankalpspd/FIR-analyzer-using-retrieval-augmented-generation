@@ -1,7 +1,7 @@
 import json
 import pandas as pd
 from retrieve_sections import retrieve_sections
-from exceptions import exceptions
+from exceptions import sec_exceptions
 from prompt import build_prompt
 from querry import query_llm
 def applicable_sections(fir_text):
@@ -23,7 +23,7 @@ def applicable_sections(fir_text):
     short_fir = fir_text
 
     # get exceptions for the act
-    exceptions = exceptions(act)
+    exceptions = sec_exceptions(act)
     exceptions = exceptions[:2500]
 
     prompt = build_prompt(short_fir, short_section, exceptions)
