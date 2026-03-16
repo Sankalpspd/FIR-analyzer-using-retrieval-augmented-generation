@@ -22,7 +22,7 @@ def retrieve_sections(fir_text):
  with open("faiss_db/section_embeddings.pkl", "rb") as f:
     embeddings = pickle.load(f)
  top_k = 7
- distances, indices = offence_index.search(sentence_embeddings, top_k)
+ distances, indices = faiss_index.search(sentence_embeddings, top_k)
 
  retrieved_ids_offence = []
 
