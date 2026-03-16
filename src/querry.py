@@ -10,4 +10,4 @@ def query_gemini(prompt):
         temperature=0
     )
     # Extract the text from response
-    return response.last.content
+    return response.last_message.content
