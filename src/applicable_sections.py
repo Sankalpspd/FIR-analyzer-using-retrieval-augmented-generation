@@ -42,6 +42,7 @@ def applicable_sections(fir_text):
         reason = "Invalid JSON response from model."
 
     sections.append({
+        "section_title": section_title,
         "section_id": id,
         "applicable": applicable,
         "reason": reason,
