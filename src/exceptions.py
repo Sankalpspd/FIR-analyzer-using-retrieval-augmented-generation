@@ -1,5 +1,5 @@
 import pandas as pd
-def exceptions(Act):
+def sec_exceptions(Act):
  df = pd. read_excel("data/combined_df.excel")
  exceptions_dict = {}
 
