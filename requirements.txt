@@ -6,5 +6,5 @@ pandas
 scikit-learn
 tqdm
 nltk
-groq
+google-generativeai
 openpyxl
