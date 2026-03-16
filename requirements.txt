@@ -8,3 +8,4 @@ tqdm
 nltk
 groq
 openpyxl
+punkt_tab
