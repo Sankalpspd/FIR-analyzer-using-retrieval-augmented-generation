@@ -1,3 +1,7 @@
+import nltk
+
+nltk.download("punkt")
+nltk.download("punkt_tab")
 import streamlit as st
 from applicable_sections import applicable_sections
 
