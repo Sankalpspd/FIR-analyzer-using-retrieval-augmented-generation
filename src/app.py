@@ -16,7 +16,7 @@ if st.button("Analyze FIR"):
         if len(results) == 0:
             st.write("No applicable sections found.")
 
-       for sec in results:
+        for sec in results:
 
             st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
             st.write(sec["section_title"])
