@@ -1,14 +1,16 @@
 import os
 import google.generativeai as genai
 
-genai.configure(api_key="GEMINI_API_KEY")
+
+# Set your API key
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 def query_gemini(prompt):
-    genai.ChatCompletion.create(
-    model="gemini-1.5",
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Summarize this FIR."}
-    ],)
-    # Extract the text from response
-    return response.last_message.content
+    response = genai.ChatCompletion.create(
+        model="gemini-1.5",
+        messages=[
+            {"role": "system", "content": "You are a helpful legal assistant."},
+            {"role": "user", "content": prompt}
+        ]
+    )
+    return response["candidates"][0]["content"]
