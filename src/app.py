@@ -23,4 +23,4 @@ if st.button("Analyze FIR"):
         for sec in results:
            if sec["applicable"] == "yes":
             st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
-            st.write(sec)
+            st.write(sec['reason'])
