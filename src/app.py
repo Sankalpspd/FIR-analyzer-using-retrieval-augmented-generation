@@ -15,12 +15,12 @@ if st.button("Analyze FIR"):
         st.warning("Please enter FIR text.")
     else:
 
-        results, n = applicable_sections(fir_text)
+        results = applicable_sections(fir_text)
 
         if len(results) == 0:
             st.write("No applicable sections found.")
         st.write(n)
         for sec in results:
-
+           if sec["applicable"] == "yes":
             st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
             st.write(sec)
