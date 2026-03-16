@@ -15,7 +15,7 @@ if st.button("Analyze FIR"):
         st.warning("Please enter FIR text.")
     else:
 
-        results = applicable_sections(fir_text, n)
+        results, n = applicable_sections(fir_text)
 
         if len(results) == 0:
             st.write("No applicable sections found.")
