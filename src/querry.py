@@ -1,18 +1,13 @@
-from groq import Groq
 import os
+import google.generativeai as genai
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+genai.configure(api_key="GEMINI_API_KEY")
 
-def query_llm(prompt, max_new_tokens=80):
-
-    response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=[
-            {"role": "system", "content": "You are a legal assistant."},
-            {"role": "user", "content": prompt}
-        ],
-        temperature=0,
-        max_tokens=max_new_tokens
+def query_gemini(prompt):
+    response = genai.chat.create(
+        model="gemini-1.5",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0
     )
-
-    return response.choices[0].message.content.strip()
+    # Extract the text from response
+    return response.last.content
