@@ -7,7 +7,7 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer
 
 # load embedding model
-model = SentenceTransformer("all-MiniLM-L6-v2")
+model = SentenceTransformer("intfloat/e5-large-v2")
 def retrieve_sections(fir_text):
  sentences = sent_tokenize(fir_text)
  sentence_embeddings = [model.encode(sentence) for sentence in sentences]
