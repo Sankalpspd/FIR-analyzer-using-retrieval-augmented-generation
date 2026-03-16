@@ -1,4 +1,5 @@
 import json
+import pandas as pd
 from retrieve_sections import retrieve_sections
 from exceptions import exceptions
 from prompt import build_prompt
