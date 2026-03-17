@@ -16,8 +16,8 @@ Instructions:
 2. Identify the key facts in the FIR.
 3. Identify the legal elements required by the section.
 4. Determine whether the FIR facts satisfy those elements.
-5. If the section's elements are satisfied AND the situation falls under a general exception, return "applicable": "yes".
-6. If the section's elements are satisfied AND no general exception applies, return "applicable": "no".
+5. If the section's elements are satisfied AND the situation falls under a general exception, return "applicable": "no".
+6. If the section's elements are satisfied AND no general exception applies, return "applicable": "yes".
 7. If the FIR facts do not satisfy the section's elements, return "applicable": "no".
 8. Do not repeat the FIR, the section text, or the prompt.
 
