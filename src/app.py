@@ -2,7 +2,8 @@ import nltk
 import streamlit as st
 from applicable_sections import applicable_sections
 from summaries import add_summaries
-
+nltk.download('punkt_tab')
+nltk.download('punkt')
 try:
     nltk.data.find("tokenizers/punkt")
 except LookupError:
