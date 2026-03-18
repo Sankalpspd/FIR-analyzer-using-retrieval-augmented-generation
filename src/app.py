@@ -38,34 +38,48 @@ if st.button("Analyze FIR"):
         results, n = applicable_sections(fir_text)
         
         applicable = [sec for sec in results if sec["applicable"] == "yes"]
-        st.write(n)
-        if applicable == []:
+        st.session_state["applicable"] = applicable
+        st.session_state["show_results"] = True
+        
+        if st.session_state.get("show_results"):
+
+          applicable = st.session_state.get("applicable", [])
+
+          if not applicable:
             st.info("No applicable sections found.")
 
-        else:
+          else:
             st.subheader("Applicable Sections")
 
             for sec in applicable:
-                st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
-                st.write("Reason:", sec["reason"])
-                st.divider()
+               st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
+               st.write("Reason:", sec["reason"])
+               st.divider()divider()
 
             # Ask user for summaries
-            st.subheader("Need section summaries?")
+                    st.subheader("Need section summaries?")
 
-            choice = st.radio(
-                "If you want, I can give you summaries of each section:",
-                ("No", "Yes")
-            )
+                    choice = st.radio(
+                       "If you want, I can give you summaries of each section:",
+                       ("No", "Yes"),
+                       key="summary_choice")
 
-            if choice == "Yes":
+                    if choice == "Yes":
 
-                with st.spinner("Generating summaries..."):
-                    applicable = add_summaries(applicable)
-                st.write(len(applicable))
-                st.subheader("Section Summaries")
+            # Prevent recomputing every rerun
+                      if "summaries_generated" not in st.session_state:
 
-                for sec in applicable:
-                    st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
-                    st.write(sec.get("summary", ""))
-                    st.divider()
+                         with st.spinner("Generating summaries..."):
+                            summaries = add_summaries(applicable)
+
+                         st.session_state["summaries"] = summaries
+                         st.session_state["summaries_generated"] = True
+
+                      summaries = st.session_state["summaries"]
+
+                      st.subheader("Section Summaries")
+
+                      for sec in summaries:
+                        st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
+                        st.write(sec.get("summary", ""))
+                        st.divider()
