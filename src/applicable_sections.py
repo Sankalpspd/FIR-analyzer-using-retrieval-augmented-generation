@@ -42,5 +42,6 @@ def applicable_sections(fir_text):
         "section_id": id,
         "applicable": applicable,   # yes/no or true/false
         "reason": reason,
+        "section_text": section_text
         "Act": act})
  return sections, len(retrieved_ids_offence)
