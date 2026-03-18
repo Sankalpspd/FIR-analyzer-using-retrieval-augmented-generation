@@ -1,6 +1,7 @@
 import pandas as pd
+df = pd. read_excel("data/combined_df.excel")
 def sec_exceptions(Act):
- df = pd. read_excel("data/combined_df.excel")
+ 
  exceptions_dict = {}
 
  for act in df["Act"].unique():
