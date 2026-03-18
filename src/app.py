@@ -58,6 +58,7 @@ if st.session_state.get("show_results"):
 
         for sec in applicable:
             st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
+            st.subheader(f"{sec['section_title']}")
             st.write("Reason:", sec["reason"])
             st.divider()
 
@@ -81,5 +82,6 @@ if st.session_state.get("summaries_generated"):
 
     for sec in summaries:
         st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
+        st.subheader(f"{sec['section_title']}")
         st.write(sec.get("summary", ""))
         st.divider()
