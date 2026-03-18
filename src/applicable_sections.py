@@ -18,12 +18,12 @@ def applicable_sections(fir_text):
 
     print(f"Running section {section_number}")
 
-    short_section = section_text[:1000]
-    short_fir = paragraph
+    short_section = section_text[:1500]
+    short_fir = fir_text
 
     # get exceptions for the act
     exceptions = exceptions_dict.get(act, "")
-    exceptions = exceptions[:1500]
+    exceptions = exceptions[:3000]
     prompt = build_prompt(short_fir, short_section, exceptions)
 
     response = query_gemini(prompt)
