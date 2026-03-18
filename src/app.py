@@ -36,7 +36,7 @@ if st.button("Analyze FIR"):
     else:
 
         results = applicable_sections(fir_text)
-
+        st.write(len(applicable_sections))
         applicable = [sec for sec in results if sec["applicable"] == "yes"]
 
         if applicable == []:
