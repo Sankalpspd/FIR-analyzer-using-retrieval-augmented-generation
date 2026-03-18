@@ -1,4 +1,5 @@
 from summary_prompt import build_summary_prompt
+from querry import query_gemini
 def add_summaries(applicable_sections):
 
     for sec in applicable_sections:
