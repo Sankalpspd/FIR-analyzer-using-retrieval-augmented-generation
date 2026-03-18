@@ -54,7 +54,7 @@ if st.button("Analyze FIR"):
             for sec in applicable:
                st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
                st.write("Reason:", sec["reason"])
-               st.divider()divider()
+               st.divider()
 
             # Ask user for summaries
                     st.subheader("Need section summaries?")
