@@ -35,10 +35,10 @@ if st.button("Analyze FIR"):
         st.warning("Please enter incident description.")
     else:
 
-        results = applicable_sections(fir_text)
+        results, n = applicable_sections(fir_text)
         
         applicable = [sec for sec in results if sec["applicable"] == "yes"]
-        st.write(len(applicable))
+        st.write(n)
         if applicable == []:
             st.info("No applicable sections found.")
 
