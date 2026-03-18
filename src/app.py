@@ -39,7 +39,7 @@ if st.button("Analyze FIR"):
 
         applicable = [sec for sec in results if sec["applicable"] == "yes"]
 
-        if not applicable:
+        if applicable == []:
             st.info("No applicable sections found.")
 
         else:
