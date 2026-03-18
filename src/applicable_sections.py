@@ -39,7 +39,7 @@ def applicable_sections(fir_text):
     reason_matches = re.findall(r'"?reason"?\s*:\s*"?(.+?)"?$', response, re.IGNORECASE | re.MULTILINE)
     reason = reason_matches[-1].strip() if reason_matches else ""
     sections.append({
-        "section_id": id,
+        "section_id": section_number,
         "applicable": applicable,   # yes/no or true/false
         "reason": reason,
         "section_text": section_text,
