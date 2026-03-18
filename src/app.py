@@ -62,7 +62,7 @@ if st.button("Analyze FIR"):
 
                 with st.spinner("Generating summaries..."):
                     applicable = add_summaries(applicable)
-
+                st.write(len(applicable))
                 st.subheader("Section Summaries")
 
                 for sec in applicable:
