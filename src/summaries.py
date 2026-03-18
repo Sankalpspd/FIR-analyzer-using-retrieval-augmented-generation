@@ -9,7 +9,7 @@ def add_summaries(applicable_sections):
         prompt = build_summary_prompt(section_text)  # truncate
 
         response = query_gemini(prompt)
-        summary = response.strip()
+        summary = response
 
         sec["summary"] = summary
 
