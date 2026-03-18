@@ -54,7 +54,7 @@ if st.session_state.get("show_results"):
         st.info("No applicable sections found.")
 
     else:
-        st.subheader("Applicable Sections")
+        st.subheader("Possible applicable Sections")
 
         for sec in applicable:
             st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
