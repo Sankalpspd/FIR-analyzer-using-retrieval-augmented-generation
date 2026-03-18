@@ -57,29 +57,29 @@ if st.button("Analyze FIR"):
                st.divider()
 
             # Ask user for summaries
-                    st.subheader("Need section summaries?")
+            st.subheader("Need section summaries?")
 
-                    choice = st.radio(
+            choice = st.radio(
                        "If you want, I can give you summaries of each section:",
                        ("No", "Yes"),
                        key="summary_choice")
 
-                    if choice == "Yes":
+            if choice == "Yes":
 
             # Prevent recomputing every rerun
-                      if "summaries_generated" not in st.session_state:
+              if "summaries_generated" not in st.session_state:
 
-                         with st.spinner("Generating summaries..."):
-                            summaries = add_summaries(applicable)
+                with st.spinner("Generating summaries..."):
+                    summaries = add_summaries(applicable)
 
-                         st.session_state["summaries"] = summaries
-                         st.session_state["summaries_generated"] = True
+                st.session_state["summaries"] = summaries
+                st.session_state["summaries_generated"] = True
 
-                      summaries = st.session_state["summaries"]
+              summaries = st.session_state["summaries"]
 
-                      st.subheader("Section Summaries")
+              st.subheader("Section Summaries")
 
-                      for sec in summaries:
-                        st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
-                        st.write(sec.get("summary", ""))
-                        st.divider()
+              for sec in summaries:
+                 st.subheader(f"{sec['Act']} - Section {sec['section_id']}")
+                 st.write(sec.get("summary", ""))
+                 st.divider()
