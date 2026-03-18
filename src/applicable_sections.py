@@ -22,7 +22,7 @@ def applicable_sections(fir_text):
     short_fir = fir_text
 
     # get exceptions for the act
-    exceptions = exceptions_dict.get(act, "")
+    exceptions = sec_exceptions(act)
     exceptions = exceptions[:3000]
     prompt = build_prompt(short_fir, short_section, exceptions)
 
