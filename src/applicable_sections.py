@@ -27,10 +27,6 @@ def applicable_sections(fir_text):
     prompt = build_prompt(short_fir, short_section, exceptions)
 
     response = query_gemini(prompt)
-    torch.cuda.empty_cache()
-    print(f"\n--- Section {section_number} ---")
-    print(response)
-    print("-"*50)
 
     lines = response.strip().split("\n")
     last_two = lines[-2:]  # last 2 lines contain the data
