@@ -62,6 +62,7 @@ if st.session_state.get("show_results"):
             st.divider()
 
         # --- Button instead of radio ---
+        st.write("If you want I can provide you the section summaries for each of the sections")
         if st.button("Generate Section Summaries"):
 
             with st.spinner("Generating summaries..."):
