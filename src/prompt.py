@@ -1,6 +1,7 @@
 def build_prompt(fir_text, section_text, exceptions):
     prompt = f"""
-You are a legal AI assistant. Analyze the FIR, the legal section, and the general exceptions to determine whether the legal section applies to the FIR.
+You are a legal AI assistant. Your task is to analyze the FIR, Legal section,
+and any part of the general exceptions to determine whether the legal section is applicable to the FIR or not, subject to the exceptions.
 
 FIR:
 {fir_text}
@@ -13,19 +14,17 @@ General Exceptions:
 
 Instructions:
 1. Use ONLY the information provided in the FIR, the legal section, and the exceptions.
-2. Identify the key facts in the FIR.
+2. Identify key facts from the FIR.
 3. Identify the legal elements required by the section.
-4. Determine whether the FIR facts satisfy those elements.
-5. If the section's elements are satisfied AND the situation falls under a general exception, return "applicable": "no".
-6. If the section's elements are satisfied AND no general exception applies, return "applicable": "yes".
-7. If the FIR facts do not satisfy the section's elements, return "applicable": "no".
-8. Do not repeat the FIR, the section text, or the prompt.
+4. Check whether the facts in the FIR satisfy those elements.
+5. If a section applies, but some part of the general exceptions apply to the section and the fir, return "applicable": no.
+6. If a section applies, and no part of the general exceptions apply to the section and the fir, return "applicable": yes.
+7. Do NOT repeat the prompt, the FIR, the section, or any other text.
+8. Only use the information provided in the FIR, section, and exceptions.
+9. Follow this exact format exactly.
 
-Return ONLY valid JSON in this exact format:
-
-{{
-  "applicable": "yes" or "no",
-  "reason": "short explanation"
-}}
+Output format:
+"applicable": yes OR "applicable": no
+"reason": "<short explanation>" (can be empty if not applicable)
 """
     return prompt.strip()
